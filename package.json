@@ -5,6 +5,9 @@
     "husky": "7.0.4"
   },
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build:generator":  "pnpm --filter prisma-generator-graphql-typedef build",
+    "usage": "pnpm --filter usage start",
+    "dev": "pnpm build:generator && pnpm usage"
   }
 }
