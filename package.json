@@ -8,6 +8,7 @@
     "prepare": "husky install",
     "build:generator":  "pnpm --filter prisma-generator-graphql-typedef build",
     "usage": "pnpm --filter usage start",
+    "test": "pnpm --filter generator test",
     "dev": "pnpm build:generator && pnpm usage"
   }
 }
