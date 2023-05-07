@@ -1,5 +1,5 @@
 export default {
-  "datamodel": "generator custom_generator {\n  provider = \"npx prisma-generator-graphql-typedef\"\n  output   = \"../types\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id        Int      @id @default(autoincrement())\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  email     String   @unique\n  name      String?\n  posts     Post[]\n  profile   Profile?\n  /// user role\n  role      Role     @default(USER)\n}\n\n/// User profile\nmodel Profile {\n  id     Int     @default(autoincrement()) @id\n  bio    String?\n  user   User    @relation(fields: [userId], references: [id])\n  userId Int     @unique\n}\n\nmodel Post {\n  id         Int        @id @default(autoincrement())\n  title      String     @default(\"\")\n  content    String?\n  published  Boolean    @default(false)\n  author     User?      @relation(fields: [authorId], references: [id])\n  authorId   Int?\n  categories Category[]\n}\n\nmodel Category {\n  id    Int    @id @default(autoincrement())\n  name  String\n  posts Post[]\n}\n\n/// user role\nenum Role {\n  ADMIN /// allowed to do everything\n  USER\n}\n\nenum NotificationType {\n  newPosts\n  newComments\n  newFollowers\n  reply\n  heartOnPost\n  heartOnComment\n  heartOnReply\n}\n\nenum Language {\n  Typescript\n  Javascript\n  Rust\n  Go\n  Python\n  Cpp\n}\n",
+  "datamodel": "generator custom_generator {\n  provider = \"npx prisma-generator-graphql-typedef\"\n  output   = \"../types\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id        Int      @id @default(autoincrement())\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  /// @gqlIgnore\n  password String \n  email     String   @unique\n  name      String?\n  posts     Post[]\n  profile   Profile?\n  /// user role\n  role      Role     @default(USER)\n}\n\n/// User profile\nmodel Profile {\n  id     Int     @default(autoincrement()) @id\n  bio    String?\n  user   User    @relation(fields: [userId], references: [id])\n  userId Int     @unique\n}\n\nmodel Post {\n  id         Int        @id @default(autoincrement())\n  title      String     @default(\"\")\n  content    String?\n  published  Boolean    @default(false)\n  author     User?      @relation(fields: [authorId], references: [id])\n  authorId   Int?\n  categories Category[]\n}\n\nmodel Category {\n  id    Int    @id @default(autoincrement())\n  name  String\n  posts Post[]\n}\n\n/// user role\nenum Role {\n  ADMIN /// allowed to do everything\n  USER\n}\n\nenum NotificationType {\n  newPosts\n  newComments\n  newFollowers\n  reply\n  heartOnPost\n  heartOnComment\n  heartOnReply\n}\n\nenum Language {\n  Typescript\n  Javascript\n  Rust\n  Go\n  Python\n  Cpp\n}\n",
   "datasources": [
     {
       "name": "db",
@@ -161,6 +161,20 @@ export default {
               "type": "DateTime",
               "isGenerated": false,
               "isUpdatedAt": true
+            },
+            {
+              "name": "password",
+              "kind": "scalar",
+              "isList": false,
+              "isRequired": true,
+              "isUnique": false,
+              "isId": false,
+              "isReadOnly": false,
+              "hasDefaultValue": false,
+              "type": "String",
+              "isGenerated": false,
+              "isUpdatedAt": false,
+              "documentation": "@gqlIgnore"
             },
             {
               "name": "email",
@@ -610,6 +624,24 @@ export default {
                 ]
               },
               {
+                "name": "password",
+                "isRequired": false,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "StringFilter",
+                    "namespace": "prisma",
+                    "location": "inputObjectTypes",
+                    "isList": false
+                  },
+                  {
+                    "type": "String",
+                    "location": "scalar",
+                    "isList": false
+                  }
+                ]
+              },
+              {
                 "name": "email",
                 "isRequired": false,
                 "isNullable": false,
@@ -743,6 +775,19 @@ export default {
               },
               {
                 "name": "updatedAt",
+                "isRequired": false,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "SortOrder",
+                    "namespace": "prisma",
+                    "location": "enumTypes",
+                    "isList": false
+                  }
+                ]
+              },
+              {
+                "name": "password",
                 "isRequired": false,
                 "isNullable": false,
                 "inputTypes": [
@@ -889,6 +934,19 @@ export default {
               },
               {
                 "name": "updatedAt",
+                "isRequired": false,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "SortOrder",
+                    "namespace": "prisma",
+                    "location": "enumTypes",
+                    "isList": false
+                  }
+                ]
+              },
+              {
+                "name": "password",
                 "isRequired": false,
                 "isNullable": false,
                 "inputTypes": [
@@ -1116,6 +1174,24 @@ export default {
                   },
                   {
                     "type": "DateTime",
+                    "location": "scalar",
+                    "isList": false
+                  }
+                ]
+              },
+              {
+                "name": "password",
+                "isRequired": false,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "StringWithAggregatesFilter",
+                    "namespace": "prisma",
+                    "location": "inputObjectTypes",
+                    "isList": false
+                  },
+                  {
+                    "type": "String",
                     "location": "scalar",
                     "isList": false
                   }
@@ -2688,6 +2764,18 @@ export default {
                 ]
               },
               {
+                "name": "password",
+                "isRequired": true,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "String",
+                    "location": "scalar",
+                    "isList": false
+                  }
+                ]
+              },
+              {
                 "name": "email",
                 "isRequired": true,
                 "isNullable": false,
@@ -2801,6 +2889,18 @@ export default {
                 ]
               },
               {
+                "name": "password",
+                "isRequired": true,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "String",
+                    "location": "scalar",
+                    "isList": false
+                  }
+                ]
+              },
+              {
                 "name": "email",
                 "isRequired": true,
                 "isNullable": false,
@@ -2907,6 +3007,24 @@ export default {
                   },
                   {
                     "type": "DateTimeFieldUpdateOperationsInput",
+                    "namespace": "prisma",
+                    "location": "inputObjectTypes",
+                    "isList": false
+                  }
+                ]
+              },
+              {
+                "name": "password",
+                "isRequired": false,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "String",
+                    "location": "scalar",
+                    "isList": false
+                  },
+                  {
+                    "type": "StringFieldUpdateOperationsInput",
                     "namespace": "prisma",
                     "location": "inputObjectTypes",
                     "isList": false
@@ -3063,6 +3181,24 @@ export default {
                 ]
               },
               {
+                "name": "password",
+                "isRequired": false,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "String",
+                    "location": "scalar",
+                    "isList": false
+                  },
+                  {
+                    "type": "StringFieldUpdateOperationsInput",
+                    "namespace": "prisma",
+                    "location": "inputObjectTypes",
+                    "isList": false
+                  }
+                ]
+              },
+              {
                 "name": "email",
                 "isRequired": false,
                 "isNullable": false,
@@ -3194,6 +3330,18 @@ export default {
                 ]
               },
               {
+                "name": "password",
+                "isRequired": true,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "String",
+                    "location": "scalar",
+                    "isList": false
+                  }
+                ]
+              },
+              {
                 "name": "email",
                 "isRequired": true,
                 "isNullable": false,
@@ -3274,6 +3422,24 @@ export default {
                   },
                   {
                     "type": "DateTimeFieldUpdateOperationsInput",
+                    "namespace": "prisma",
+                    "location": "inputObjectTypes",
+                    "isList": false
+                  }
+                ]
+              },
+              {
+                "name": "password",
+                "isRequired": false,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "String",
+                    "location": "scalar",
+                    "isList": false
+                  },
+                  {
+                    "type": "StringFieldUpdateOperationsInput",
                     "namespace": "prisma",
                     "location": "inputObjectTypes",
                     "isList": false
@@ -3397,6 +3563,24 @@ export default {
                   },
                   {
                     "type": "DateTimeFieldUpdateOperationsInput",
+                    "namespace": "prisma",
+                    "location": "inputObjectTypes",
+                    "isList": false
+                  }
+                ]
+              },
+              {
+                "name": "password",
+                "isRequired": false,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "String",
+                    "location": "scalar",
+                    "isList": false
+                  },
+                  {
+                    "type": "StringFieldUpdateOperationsInput",
                     "namespace": "prisma",
                     "location": "inputObjectTypes",
                     "isList": false
@@ -5531,6 +5715,19 @@ export default {
                 ]
               },
               {
+                "name": "password",
+                "isRequired": false,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "SortOrder",
+                    "namespace": "prisma",
+                    "location": "enumTypes",
+                    "isList": false
+                  }
+                ]
+              },
+              {
                 "name": "email",
                 "isRequired": false,
                 "isNullable": false,
@@ -5640,6 +5837,19 @@ export default {
                 ]
               },
               {
+                "name": "password",
+                "isRequired": false,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "SortOrder",
+                    "namespace": "prisma",
+                    "location": "enumTypes",
+                    "isList": false
+                  }
+                ]
+              },
+              {
                 "name": "email",
                 "isRequired": false,
                 "isNullable": false,
@@ -5715,6 +5925,19 @@ export default {
               },
               {
                 "name": "updatedAt",
+                "isRequired": false,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "SortOrder",
+                    "namespace": "prisma",
+                    "location": "enumTypes",
+                    "isList": false
+                  }
+                ]
+              },
+              {
+                "name": "password",
                 "isRequired": false,
                 "isNullable": false,
                 "inputTypes": [
@@ -13418,6 +13641,18 @@ export default {
                 ]
               },
               {
+                "name": "password",
+                "isRequired": true,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "String",
+                    "location": "scalar",
+                    "isList": false
+                  }
+                ]
+              },
+              {
                 "name": "email",
                 "isRequired": true,
                 "isNullable": false,
@@ -13512,6 +13747,18 @@ export default {
                 "inputTypes": [
                   {
                     "type": "DateTime",
+                    "location": "scalar",
+                    "isList": false
+                  }
+                ]
+              },
+              {
+                "name": "password",
+                "isRequired": true,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "String",
                     "location": "scalar",
                     "isList": false
                   }
@@ -13706,6 +13953,24 @@ export default {
                 ]
               },
               {
+                "name": "password",
+                "isRequired": false,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "String",
+                    "location": "scalar",
+                    "isList": false
+                  },
+                  {
+                    "type": "StringFieldUpdateOperationsInput",
+                    "namespace": "prisma",
+                    "location": "inputObjectTypes",
+                    "isList": false
+                  }
+                ]
+              },
+              {
                 "name": "email",
                 "isRequired": false,
                 "isNullable": false,
@@ -13842,6 +14107,24 @@ export default {
                 ]
               },
               {
+                "name": "password",
+                "isRequired": false,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "String",
+                    "location": "scalar",
+                    "isList": false
+                  },
+                  {
+                    "type": "StringFieldUpdateOperationsInput",
+                    "namespace": "prisma",
+                    "location": "inputObjectTypes",
+                    "isList": false
+                  }
+                ]
+              },
+              {
                 "name": "email",
                 "isRequired": false,
                 "isNullable": false,
@@ -13948,6 +14231,18 @@ export default {
                 ]
               },
               {
+                "name": "password",
+                "isRequired": true,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "String",
+                    "location": "scalar",
+                    "isList": false
+                  }
+                ]
+              },
+              {
                 "name": "email",
                 "isRequired": true,
                 "isNullable": false,
@@ -14042,6 +14337,18 @@ export default {
                 "inputTypes": [
                   {
                     "type": "DateTime",
+                    "location": "scalar",
+                    "isList": false
+                  }
+                ]
+              },
+              {
+                "name": "password",
+                "isRequired": true,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "String",
                     "location": "scalar",
                     "isList": false
                   }
@@ -14331,6 +14638,24 @@ export default {
                 ]
               },
               {
+                "name": "password",
+                "isRequired": false,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "String",
+                    "location": "scalar",
+                    "isList": false
+                  },
+                  {
+                    "type": "StringFieldUpdateOperationsInput",
+                    "namespace": "prisma",
+                    "location": "inputObjectTypes",
+                    "isList": false
+                  }
+                ]
+              },
+              {
                 "name": "email",
                 "isRequired": false,
                 "isNullable": false,
@@ -14460,6 +14785,24 @@ export default {
                   },
                   {
                     "type": "DateTimeFieldUpdateOperationsInput",
+                    "namespace": "prisma",
+                    "location": "inputObjectTypes",
+                    "isList": false
+                  }
+                ]
+              },
+              {
+                "name": "password",
+                "isRequired": false,
+                "isNullable": false,
+                "inputTypes": [
+                  {
+                    "type": "String",
+                    "location": "scalar",
+                    "isList": false
+                  },
+                  {
+                    "type": "StringFieldUpdateOperationsInput",
                     "namespace": "prisma",
                     "location": "inputObjectTypes",
                     "isList": false
@@ -19072,6 +19415,16 @@ export default {
                 }
               },
               {
+                "name": "password",
+                "args": [],
+                "isNullable": false,
+                "outputType": {
+                  "type": "String",
+                  "location": "scalar",
+                  "isList": false
+                }
+              },
+              {
                 "name": "email",
                 "args": [],
                 "isNullable": false,
@@ -19683,6 +20036,16 @@ export default {
                 }
               },
               {
+                "name": "password",
+                "args": [],
+                "isNullable": false,
+                "outputType": {
+                  "type": "Int",
+                  "location": "scalar",
+                  "isList": false
+                }
+              },
+              {
                 "name": "email",
                 "args": [],
                 "isNullable": false,
@@ -19788,6 +20151,16 @@ export default {
                 }
               },
               {
+                "name": "password",
+                "args": [],
+                "isNullable": true,
+                "outputType": {
+                  "type": "String",
+                  "location": "scalar",
+                  "isList": false
+                }
+              },
+              {
                 "name": "email",
                 "args": [],
                 "isNullable": true,
@@ -19849,6 +20222,16 @@ export default {
                 "isNullable": true,
                 "outputType": {
                   "type": "DateTime",
+                  "location": "scalar",
+                  "isList": false
+                }
+              },
+              {
+                "name": "password",
+                "args": [],
+                "isNullable": true,
+                "outputType": {
+                  "type": "String",
                   "location": "scalar",
                   "isList": false
                 }
@@ -20457,6 +20840,16 @@ export default {
                 }
               },
               {
+                "name": "password",
+                "args": [],
+                "isNullable": false,
+                "outputType": {
+                  "type": "String",
+                  "location": "scalar",
+                  "isList": false
+                }
+              },
+              {
                 "name": "email",
                 "args": [],
                 "isNullable": false,
@@ -21010,6 +21403,7 @@ export default {
               "id",
               "createdAt",
               "updatedAt",
+              "password",
               "email",
               "name",
               "role"

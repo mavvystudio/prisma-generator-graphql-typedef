@@ -17,7 +17,32 @@ const createList = (t: string, item: DMMF.Field) => {
   return t
 }
 
+type GqlAttrsObject = {
+  ['@gqlIgnore']?: boolean
+}
+
+const gqlAttrs = ['@gqlIgnore']
+
+const getGqlAttrs = (item: DMMF.Field) => {
+  const attrs = item.documentation?.split(' ')
+  if (!attrs) {
+    return {} as GqlAttrsObject
+  }
+  return attrs.reduce((prev, current) => {
+    const item = current.trim()
+    if (!gqlAttrs.includes(item)) {
+      return prev
+    }
+    return { ...prev, [item]: true }
+  }, {} as GqlAttrsObject)
+}
+
 const createType = (item: DMMF.Field) => {
+  const gqlAttrs = getGqlAttrs(item)
+
+  if (gqlAttrs['@gqlIgnore']) {
+    return null
+  }
   const t = item.type
   if (t === 'Decimal') {
     return 'Float'
@@ -39,8 +64,12 @@ export const generateModels = (
       const fields = current.fields
         .map((item) => {
           const itemType = createType(item)
+          if (!itemType) {
+            return null
+          }
           return `${item.name}: ${createList(itemType, item)}`
         })
+        .filter((d: string | null) => d)
         .join('\n  ')
       const data = `type ${current.name} {
   ${fields}
