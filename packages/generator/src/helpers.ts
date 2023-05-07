@@ -58,8 +58,8 @@ const createType = (item: DMMF.Field) => {
 
 export const generateModels = (
   models: GeneratorOptions['dmmf']['datamodel']['models'],
-) => {
-  const schema = models.reduce(
+) =>
+  models.reduce(
     (prev, current) => {
       const fields = current.fields
         .map((item) => {
@@ -81,8 +81,6 @@ export const generateModels = (
 
     '',
   )
-  return schema
-}
 
 export const generateEnums = (
   enums: GeneratorOptions['dmmf']['datamodel']['enums'],
