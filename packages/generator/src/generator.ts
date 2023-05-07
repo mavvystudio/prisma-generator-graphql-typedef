@@ -1,8 +1,4 @@
-import {
-  DMMF,
-  generatorHandler,
-  GeneratorOptions,
-} from '@prisma/generator-helper'
+import { generatorHandler, GeneratorOptions } from '@prisma/generator-helper'
 import { logger } from '@prisma/internals'
 import path from 'path'
 import { GENERATOR_NAME } from './constants'
@@ -33,15 +29,5 @@ generatorHandler({
 
     await writeFileSafely(path.join(basePath, 'schema.ts'), content)
     await writeFileSafely(path.join(basePath, 'options.ts'), jsonOptions)
-
-    /**
-     enums.forEach(async (enumInfo) => {
-      const tsEnum = genEnum(enumInfo)
-
-      const writeLocation = path.join(basePath, `${enumInfo.name}.ts`)
-
-      await writeFileSafely(writeLocation, tsEnum)
-    })
-     */
   },
 })
