@@ -1,7 +1,7 @@
 {
   "name": "prisma-generator-graphql-typedef",
   "description": "Provide a description about your generator",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "main": "dist/generator.js",
   "license": "MIT",
   "bin": {
