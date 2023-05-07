@@ -28,7 +28,11 @@ generatorHandler({
     const basePath = options.generator.output?.value!
     const content = `export default \`${schemaModel.concat(schemaEnum)}\``
 
+    const json = JSON.stringify(options, null, 2)
+    const jsonOptions = `export default ${json}`
+
     await writeFileSafely(path.join(basePath, 'schema.ts'), content)
+    await writeFileSafely(path.join(basePath, 'options.ts'), jsonOptions)
 
     /**
      enums.forEach(async (enumInfo) => {
