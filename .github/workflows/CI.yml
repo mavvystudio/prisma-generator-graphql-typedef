@@ -51,7 +51,7 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 7.32.3
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
