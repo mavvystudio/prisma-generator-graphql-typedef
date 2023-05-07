@@ -3,7 +3,6 @@ import { logger } from '@prisma/internals'
 import path from 'path'
 import { GENERATOR_NAME } from './constants'
 import { generateEnums, generateModels } from './helpers'
-// import { genEnum } from './helpers/genEnum'
 import { writeFileSafely } from './utils/writeFileSafely'
 
 const { version } = require('../package.json')
