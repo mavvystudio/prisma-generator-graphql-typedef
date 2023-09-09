@@ -1,7 +1,7 @@
 {
   "name": "prisma-generator-graphql-typedef",
   "description": "Generates a gql schema from prisma object",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/generator.js",
   "license": "MIT",
   "bin": {
