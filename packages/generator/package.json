@@ -44,7 +44,8 @@
   "keywords": [
     "prisma",
     "prisma2",
-    "generator"
+    "generator",
+    "graphql"
   ],
   "release": {
     "branches": [
