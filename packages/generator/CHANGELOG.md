@@ -1,3 +1,13 @@
+## [1.0.2](https://github.com/mavvy22/prisma-generator-graphql-typedef/compare/v1.0.1...v1.0.2) (2023-09-09)
+
+
+### Bug Fixes
+
+* ci install error ([59d66f1](https://github.com/mavvy22/prisma-generator-graphql-typedef/commit/59d66f173b65197e46181bb544438fd4612f2e0f))
+* CI install error ([542aa4a](https://github.com/mavvy22/prisma-generator-graphql-typedef/commit/542aa4aae66956cf465f24b657259a1614ce135c))
+* merge conflict ([80522e0](https://github.com/mavvy22/prisma-generator-graphql-typedef/commit/80522e0f58af66d2fd6672c42fa1a19a421e2cc5))
+* update packages ([0be3ff4](https://github.com/mavvy22/prisma-generator-graphql-typedef/commit/0be3ff43d3d98715162e073ccf3e2caf2731f173))
+
 ## [1.0.1](https://github.com/mavvy22/prisma-generator-graphql-typedef/compare/v1.0.0...v1.0.1) (2023-05-07)
 
 
