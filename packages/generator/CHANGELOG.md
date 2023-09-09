@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/mavvy22/prisma-generator-graphql-typedef/compare/v1.0.2...v1.0.3) (2023-09-09)
+
+
+### Bug Fixes
+
+* package version not aligned ([42593bc](https://github.com/mavvy22/prisma-generator-graphql-typedef/commit/42593bc17748d3f941d268bc0ed660eb2afbe052))
+
 ## [1.0.2](https://github.com/mavvy22/prisma-generator-graphql-typedef/compare/v1.0.1...v1.0.2) (2023-09-09)
 
 
