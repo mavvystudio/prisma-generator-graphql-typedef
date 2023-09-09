@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/mavvy22/prisma-generator-graphql-typedef/compare/v1.0.5...v1.0.6) (2023-09-09)
+
+
+### Bug Fixes
+
+* trigger deploy ([ccd430d](https://github.com/mavvy22/prisma-generator-graphql-typedef/commit/ccd430d266f1076e8a29cedd5a951501e533526e))
+
 ## [1.0.5](https://github.com/mavvy22/prisma-generator-graphql-typedef/compare/v1.0.4...v1.0.5) (2023-09-09)
 
 
