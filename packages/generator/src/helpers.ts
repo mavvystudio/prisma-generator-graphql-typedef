@@ -44,6 +44,7 @@ const createType = (item: DMMF.Field) => {
     return null
   }
   const t = item.type
+
   if (t === 'Decimal') {
     return 'Float'
   }
