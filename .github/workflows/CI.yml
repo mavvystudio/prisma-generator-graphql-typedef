@@ -31,7 +31,7 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
       - name: Install dependencies
-        run: pnpm i
+        run: pnpm i --no-frozen-lockfile
       - name: Run Tests 🧪
         working-directory: ./packages/generator
         run: pnpm run test
@@ -56,7 +56,7 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
       - name: Install dependencies
-        run: pnpm i
+        run: pnpm i --no-frozen-lockfile
       - name: Publish 🚀
         working-directory: ./packages/generator
         run: npx semantic-release
