@@ -31,7 +31,7 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
       - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+        run: pnpm i
       - name: Run Tests 🧪
         working-directory: ./packages/generator
         run: pnpm run test
