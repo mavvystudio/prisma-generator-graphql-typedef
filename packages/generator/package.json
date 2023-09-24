@@ -18,7 +18,7 @@
     "test": "npx jest"
   },
   "dependencies": {
-    "@prisma/client": "5.2.0",
+    "@prisma/client": "5.3.1",
     "@prisma/generator-helper": "5.3.0",
     "@prisma/internals": "5.3.1",
     "prettier": "3.0.3"
