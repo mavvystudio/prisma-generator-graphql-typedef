@@ -1,3 +1,11 @@
+## [1.0.7](https://github.com/mavvy22/prisma-generator-graphql-typedef/compare/v1.0.6...v1.0.7) (2024-03-12)
+
+
+### Bug Fixes
+
+* node version on ci job ([1452f3d](https://github.com/mavvy22/prisma-generator-graphql-typedef/commit/1452f3d01b1a6c3f6cd41394b99189529ad507d5))
+* update nodejs in ci ([fb68f36](https://github.com/mavvy22/prisma-generator-graphql-typedef/commit/fb68f36f86b24e8a87bc29bc4793e4f9aece5eff))
+
 ## [1.0.6](https://github.com/mavvy22/prisma-generator-graphql-typedef/compare/v1.0.5...v1.0.6) (2023-09-09)
 
 
