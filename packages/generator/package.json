@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@prisma/internals": "5.7.1",
-    "@prisma/generator-helper": "5.10.2",
+    "@prisma/generator-helper": "5.11.0",
     "@prisma/client": "5.10.2",
     "prettier": "3.0.3"
   },
