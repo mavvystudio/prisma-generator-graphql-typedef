@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/mavvy22/prisma-generator-graphql-typedef/compare/v1.1.1...v1.1.2) (2024-04-11)
+
+
+### Bug Fixes
+
+* add pnpm lock file ([3e8fd5d](https://github.com/mavvy22/prisma-generator-graphql-typedef/commit/3e8fd5df85e9a8b8144c7766ad51c2f3a142df16))
+
 ## [1.1.1](https://github.com/mavvy22/prisma-generator-graphql-typedef/compare/v1.1.0...v1.1.1) (2024-04-11)
 
 
