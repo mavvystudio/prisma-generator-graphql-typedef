@@ -8,7 +8,7 @@
     "prisma-generator-graphql-typedef": "dist/bin.js"
   },
   "engines": {
-    "node": ">=14.0"
+    "node": ">=18.0"
   },
   "scripts": {
     "start": "node dist/bin.js",
@@ -26,7 +26,6 @@
   "devDependencies": {
     "@types/jest": "29.5.12",
     "@types/node": "20.12.7",
-    "@types/prettier": "3.0.0",
     "jest": "29.7.0",
     "prisma": "5.12.1",
     "ts-jest": "29.1.2",
