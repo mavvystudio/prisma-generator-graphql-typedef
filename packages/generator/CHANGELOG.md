@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/mavvy22/prisma-generator-graphql-typedef/compare/v1.0.7...v1.0.8) (2024-04-11)
+
+
+### Bug Fixes
+
+* array type for graphql schema ([3ee8ebd](https://github.com/mavvy22/prisma-generator-graphql-typedef/commit/3ee8ebddfe802bc0db566e225f12a3f9e0dd4e79))
+
 ## [1.0.7](https://github.com/mavvy22/prisma-generator-graphql-typedef/compare/v1.0.6...v1.0.7) (2024-03-12)
 
 
