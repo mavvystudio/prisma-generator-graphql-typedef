@@ -1,7 +1,7 @@
 export default `type User {
   id: Int
-  createdAt: DateTime
-  updatedAt: DateTime
+  createdAt: Float
+  updatedAt: Float
   email: String
   name: String
   posts: [Post]

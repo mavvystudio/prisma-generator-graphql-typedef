@@ -19,15 +19,18 @@ const createList = (t: string, item: DMMF.Field) => {
 
 type GqlAttrsObject = {
   ['@gqlIgnore']?: boolean
+  ['@gqlType']?: string
 }
-
-const gqlAttrs = ['@gqlIgnore']
 
 const getGqlAttrs = (item: DMMF.Field) => {
   const attrs = item.documentation?.split(' ')
   if (!attrs) {
     return {} as GqlAttrsObject
   }
+  return {
+    [attrs[0]]: attrs[1] || true,
+  }
+  /**
   return attrs.reduce((prev, current) => {
     const item = current.trim()
     if (!gqlAttrs.includes(item)) {
@@ -35,13 +38,17 @@ const getGqlAttrs = (item: DMMF.Field) => {
     }
     return { ...prev, [item]: true }
   }, {} as GqlAttrsObject)
+  */
 }
 
 const createType = (item: DMMF.Field) => {
-  const gqlAttrs = getGqlAttrs(item)
+  const gqlAttrsObj = getGqlAttrs(item)
 
-  if (gqlAttrs['@gqlIgnore']) {
+  if (gqlAttrsObj['@gqlIgnore']) {
     return null
+  }
+  if (gqlAttrsObj['@gqlType']) {
+    return gqlAttrsObj['@gqlType']
   }
   const t = item.type
 

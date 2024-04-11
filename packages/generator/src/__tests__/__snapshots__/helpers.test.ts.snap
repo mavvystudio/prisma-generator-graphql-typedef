@@ -12,15 +12,15 @@ enum Role {
 exports[`model generation: model 1`] = `
 "type User {
   id: Int
-  createdAt: DateTime
-  updatedAt: DateTime
+  createdAt: Float
+  updatedAt: Float
   email: String
   name: String
-  posts: Post[]
+  posts: [Post]
   profile: Profile
   role: Role
   rating: Float
-  files: Byte[]
+  files: [Byte]
 }
 
 type Profile {
@@ -37,13 +37,13 @@ type Post {
   published: Boolean
   author: User
   authorId: Int
-  categories: Category[]
+  categories: [Category]
 }
 
 type Category {
   id: Int
   name: String
-  posts: Post[]
+  posts: [Post]
 }
 
 "

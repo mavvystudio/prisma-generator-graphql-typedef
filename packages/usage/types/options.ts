@@ -1,5 +1,5 @@
 export default {
-  "datamodel": "generator custom_generator {\n  provider = \"npx prisma-generator-graphql-typedef\"\n  output   = \"../types\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id        Int      @id @default(autoincrement())\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  /// @gqlIgnore\n  password String \n  email     String   @unique\n  name      String?\n  posts     Post[]\n  profile   Profile?\n  /// user role\n  role      Role     @default(USER)\n}\n\n/// User profile\nmodel Profile {\n  id     Int     @default(autoincrement()) @id\n  bio    String?\n  user   User    @relation(fields: [userId], references: [id])\n  userId Int     @unique\n}\n\nmodel Post {\n  id         Int        @id @default(autoincrement())\n  title      String     @default(\"\")\n  content    String?\n  published  Boolean    @default(false)\n  author     User?      @relation(fields: [authorId], references: [id])\n  authorId   Int?\n  categories Category[]\n}\n\nmodel Category {\n  id    Int    @id @default(autoincrement())\n  name  String\n  posts Post[]\n}\n\n/// user role\nenum Role {\n  ADMIN /// allowed to do everything\n  USER\n}\n\nenum NotificationType {\n  newPosts\n  newComments\n  newFollowers\n  reply\n  heartOnPost\n  heartOnComment\n  heartOnReply\n}\n\nenum Language {\n  Typescript\n  Javascript\n  Rust\n  Go\n  Python\n  Cpp\n}\n",
+  "datamodel": "generator custom_generator {\n  provider = \"npx prisma-generator-graphql-typedef\"\n  output   = \"../types\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id        Int      @id @default(autoincrement())\n  /// @gqlType Float\n  createdAt DateTime @default(now())\n  /// @gqlType Float\n  updatedAt DateTime @updatedAt\n  /// @gqlIgnore\n  password String \n  email     String   @unique\n  name      String?\n  posts     Post[]\n  profile   Profile?\n  /// user role\n  role      Role     @default(USER)\n}\n\n/// User profile\nmodel Profile {\n  id     Int     @default(autoincrement()) @id\n  bio    String?\n  user   User    @relation(fields: [userId], references: [id])\n  userId Int     @unique\n}\n\nmodel Post {\n  id         Int        @id @default(autoincrement())\n  title      String     @default(\"\")\n  content    String?\n  published  Boolean    @default(false)\n  author     User?      @relation(fields: [authorId], references: [id])\n  authorId   Int?\n  categories Category[]\n}\n\nmodel Category {\n  id    Int    @id @default(autoincrement())\n  name  String\n  posts Post[]\n}\n\n/// user role\nenum Role {\n  ADMIN /// allowed to do everything\n  USER\n}\n\nenum NotificationType {\n  newPosts\n  newComments\n  newFollowers\n  reply\n  heartOnPost\n  heartOnComment\n  heartOnReply\n}\n\nenum Language {\n  Typescript\n  Javascript\n  Rust\n  Go\n  Python\n  Cpp\n}\n",
   "datasources": [
     {
       "name": "db",
@@ -147,7 +147,8 @@ export default {
                 "args": []
               },
               "isGenerated": false,
-              "isUpdatedAt": false
+              "isUpdatedAt": false,
+              "documentation": "@gqlType Float"
             },
             {
               "name": "updatedAt",
@@ -160,7 +161,8 @@ export default {
               "hasDefaultValue": false,
               "type": "DateTime",
               "isGenerated": false,
-              "isUpdatedAt": true
+              "isUpdatedAt": true,
+              "documentation": "@gqlType Float"
             },
             {
               "name": "password",

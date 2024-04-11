@@ -10,7 +10,9 @@ datasource db {
 
 model User {
   id        Int      @id @default(autoincrement())
+  /// @gqlType Float
   createdAt DateTime @default(now())
+  /// @gqlType Float
   updatedAt DateTime @updatedAt
   /// @gqlIgnore
   password String 
