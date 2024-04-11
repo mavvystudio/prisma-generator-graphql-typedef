@@ -12,7 +12,7 @@ enum ${name} {
 
 const createList = (t: string, item: DMMF.Field) => {
   if (item.isList) {
-    return `${t}[]`
+    return `[${t}]`
   }
   return t
 }

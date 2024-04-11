@@ -4,7 +4,7 @@ export default `type User {
   updatedAt: DateTime
   email: String
   name: String
-  posts: Post[]
+  posts: [Post]
   profile: Profile
   role: Role
 }
@@ -23,13 +23,13 @@ type Post {
   published: Boolean
   author: User
   authorId: Int
-  categories: Category[]
+  categories: [Category]
 }
 
 type Category {
   id: Int
   name: String
-  posts: Post[]
+  posts: [Post]
 }
 
 
