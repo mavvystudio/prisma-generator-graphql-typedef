@@ -24,7 +24,9 @@ model User {
   role      Role     @default(USER)
 }
 ```
-Will generate this graphql schema:
+Will generate this graphql schema: 
+
+***also see that password field is not included because of the @gqlIgnore keyword***
 ```bash
 type User {
   id: Int
@@ -32,7 +34,7 @@ type User {
   updatedAt: DateTime
   email: String
   name: String
-  posts: Post[]
+  posts: [Post]
   profile: Profile
   role: Role
 }
