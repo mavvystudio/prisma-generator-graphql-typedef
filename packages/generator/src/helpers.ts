@@ -30,15 +30,6 @@ const getGqlAttrs = (item: DMMF.Field) => {
   return {
     [attrs[0]]: attrs[1] || true,
   }
-  /**
-  return attrs.reduce((prev, current) => {
-    const item = current.trim()
-    if (!gqlAttrs.includes(item)) {
-      return prev
-    }
-    return { ...prev, [item]: true }
-  }, {} as GqlAttrsObject)
-  */
 }
 
 const createType = (item: DMMF.Field) => {
