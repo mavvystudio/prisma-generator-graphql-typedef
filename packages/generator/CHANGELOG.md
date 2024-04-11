@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/mavvy22/prisma-generator-graphql-typedef/compare/v1.0.8...v1.1.0) (2024-04-11)
+
+
+### Features
+
+* add [@gql](https://github.com/gql)Type support ([3785b08](https://github.com/mavvy22/prisma-generator-graphql-typedef/commit/3785b085ec381277b14776c951305e6fb655b1d3))
+
 ## [1.0.8](https://github.com/mavvy22/prisma-generator-graphql-typedef/compare/v1.0.7...v1.0.8) (2024-04-11)
 
 
