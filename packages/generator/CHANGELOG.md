@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/mavvystudio/prisma-generator-graphql-typedef/compare/v1.1.3...v1.1.4) (2024-04-12)
+
+
+### Bug Fixes
+
+* update readme ([eeac29d](https://github.com/mavvystudio/prisma-generator-graphql-typedef/commit/eeac29df5ed9ecc5f1c69c2d20556e25da9185a1))
+
 ## [1.1.3](https://github.com/mavvystudio/prisma-generator-graphql-typedef/compare/v1.1.2...v1.1.3) (2024-04-12)
 
 
