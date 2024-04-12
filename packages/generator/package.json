@@ -34,10 +34,10 @@
     "@semantic-release/git": "^10.0.1",
     "semantic-release": "^23.0.2"
   },
-  "homepage": "https://github.com/mavvy22/prisma-generator-graphql-typedef",
+  "homepage": "https://github.com/mavvystudio/prisma-generator-graphql-typedef",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mavvy22/prisma-generator-graphql-typedef"
+    "url": "https://github.com/mavvystudio/prisma-generator-graphql-typedef"
   },
   "author": "Marc Jeric Espiritu <mavvystudio@gmail.com>",
   "keywords": [
