@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/mavvystudio/prisma-generator-graphql-typedef/compare/v1.1.4...v1.2.0) (2024-05-22)
+
+
+### Features
+
+* generate .graphql file ([ef9a916](https://github.com/mavvystudio/prisma-generator-graphql-typedef/commit/ef9a91697af3dae1adb31106a9b7241d640636fb))
+
 ## [1.1.4](https://github.com/mavvystudio/prisma-generator-graphql-typedef/compare/v1.1.3...v1.1.4) (2024-04-12)
 
 
