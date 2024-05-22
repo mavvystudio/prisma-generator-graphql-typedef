@@ -21,12 +21,14 @@ generatorHandler({
     const schemaModel = generateModels(models)
     const schemaEnum = generateEnums(enums)
     const basePath = options.generator.output?.value!
-    const content = `export default \`${schemaModel.concat(schemaEnum)}\``
+    const gql = schemaModel.concat(schemaEnum)
+    const content = `export default \`${gql}\``
 
     const json = JSON.stringify(options, null, 2)
     const jsonOptions = `export default ${json}`
 
     await writeFileSafely(path.join(basePath, 'schema.ts'), content)
+    await writeFileSafely(path.join(basePath, 'schema.graphql'), gql)
     await writeFileSafely(path.join(basePath, 'options.ts'), jsonOptions)
   },
 })
