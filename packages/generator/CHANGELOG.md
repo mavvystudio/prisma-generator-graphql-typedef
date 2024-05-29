@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/mavvystudio/prisma-generator-graphql-typedef/compare/v1.2.0...v1.3.0) (2024-05-29)
+
+
+### Features
+
+* add mandatory fields ([1f7d939](https://github.com/mavvystudio/prisma-generator-graphql-typedef/commit/1f7d939d08c888030937dfcbe79a0c8e21bf4fd0))
+
 # [1.2.0](https://github.com/mavvystudio/prisma-generator-graphql-typedef/compare/v1.1.4...v1.2.0) (2024-05-22)
 
 
