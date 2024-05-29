@@ -1,35 +1,35 @@
 export default `type User {
-  id: Int
-  createdAt: Float
-  updatedAt: Float
-  email: String
+  id: Int!
+  createdAt: Float!
+  updatedAt: Float!
+  email: String!
   name: String
-  posts: [Post]
+  posts: [Post]!
   profile: Profile
-  role: Role
+  role: Role!
 }
 
 type Profile {
-  id: Int
+  id: Int!
   bio: String
-  user: User
-  userId: Int
+  user: User!
+  userId: Int!
 }
 
 type Post {
-  id: Int
-  title: String
+  id: Int!
+  title: String!
   content: String
-  published: Boolean
+  published: Boolean!
   author: User
   authorId: Int
-  categories: [Category]
+  categories: [Category!]!
 }
 
 type Category {
-  id: Int
-  name: String
-  posts: [Post]
+  id: Int!
+  name: String!
+  posts: [Post]!
 }
 
 
