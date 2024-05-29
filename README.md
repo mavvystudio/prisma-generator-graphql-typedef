@@ -20,6 +20,8 @@ model User {
   password  String 
   email     String   @unique
   name      String?
+  keywords  String[]
+  /// @gqlNonNullElement
   posts     Post[]
   profile   Profile?
   /// user role
@@ -28,20 +30,25 @@ model User {
 ```
 Will generate this graphql schema: 
 
-***password field is not included because of the @gqlIgnore keyword***
+- password field is not included because of the ***@gqlIgnore*** keyword
 
-***createdAt and updatedAt fields' type was changed to Float by using @gqlType Float, which you can supply any type***
+- createdAt and updatedAt fields' type was changed to Float by using ***@gqlType Float***, which you can supply any type
+
+- name and profile is optional that makes all the other fields non-null
+
+- posts is non null by using ***@gqlNonNullElement***
 
 ```bash
 type User {
-  id: Int
-  createdAt: Float
-  updatedAt: Float
-  email: String
+  id: Int!
+  createdAt: Float!
+  updatedAt: Float!
+  email: String!
   name: String
-  posts: [Post]
+  keywords: [String]!
+  posts: [Post!]!
   profile: Profile
-  role: Role
+  role: Role!
 }
 ```
 
