@@ -21,7 +21,7 @@
     "@prisma/internals": "5.16.1",
     "@prisma/generator-helper": "5.16.1",
     "@prisma/client": "5.14.0",
-    "prettier": "3.3.0"
+    "prettier": "3.3.2"
   },
   "devDependencies": {
     "@types/jest": "29.5.12",
